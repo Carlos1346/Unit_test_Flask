@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos</title>
+</head>
+<body>
+    <h1>Proyectos</h1>
+    <a href="/new-project">Añadir nuevo proyecto</a>
+    <ul>
+        {% for project in projects %}
+        <li>
+            <strong>{{ project.title }}</strong><br>
+            {{ project.description }}<br>
+            <form action="/delete-project" method="POST">
+                <input type="hidden" name="id" value="{{ project.id }}">
+                <button type="submit">Eliminar</button>
+            </form>
+            <a href="/edit-project/{{ project.id }}">Editar</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

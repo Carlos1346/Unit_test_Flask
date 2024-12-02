@@ -1,5 +1,4 @@
-MYSQL_HOST = ''
-MYSQL_USER = ''
-MYSQL_PASSWORD = ''
-MYSQL_DB = ''
-HEX_SEC_KEY= 'd5fb8c4fa8bd46638dadc4e751e0d68d'
+class Config:
+    SECRET_KEY = 'your_secret_key'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'  # Base de datos SQLite
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

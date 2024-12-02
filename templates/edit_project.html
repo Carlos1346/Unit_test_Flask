@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Proyecto</title>
+</head>
+<body>
+    <h1>Editar Proyecto</h1>
+    <form action="/update-project" method="POST">
+        <input type="hidden" name="id" value="{{ project.id }}">
+        <input type="text" name="title" value="{{ project.title }}" required>
+        <textarea name="description" required>{{ project.description }}</textarea>
+        <input type="date" name="end_date" value="{{ project.end_date }}" required>
+        <button type="submit">Actualizar</button>
+    </form>
+    <a href="/projects">Volver a proyectos</a>
+</body>
+</html>

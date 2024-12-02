@@ -1,0 +1,34 @@
+-- Tabla Users
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla Tasks
+CREATE TABLE Tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+);
+
+-- Tabla Categories
+CREATE TABLE Categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla TaskCategories (Relación entre Tasks y Categories)
+CREATE TABLE TaskCategories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_id INT NOT NULL,
+    category_id INT NOT NULL,
+    FOREIGN KEY (task_id) REFERENCES Tasks(id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES Categories(id) ON DELETE CASCADE
+);

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <h1>Registrarse</h1>
+    <form action="/register" method="POST">
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="text" name="surnames" placeholder="Apellidos" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <h2>¿Ya tienes cuenta?</h2>
+    <a href="/">Inicia sesión aquí</a>
+
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>

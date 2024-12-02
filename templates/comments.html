@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios</title>
+</head>
+<body>
+    <h1>Comentarios del Proyecto</h1>
+    <ul>
+        {% for comment in comments %}
+        <li>
+            {{ comment.comment }} - {{ comment.email }}
+        </li>
+        {% endfor %}
+    </ul>
+    <form action="/add-comment" method="POST">
+        <input type="hidden" name="project_id" value="{{ project_id }}">
+        <textarea name="comment" required></textarea>
+        <button type="submit">Añadir comentario</button>
+    </form>
+</body>
+</html>
